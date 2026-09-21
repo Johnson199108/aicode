@@ -1,0 +1,13 @@
+{
+  "name": "skills-manager",
+  "version": "1.0.0",
+  "description": "Local web platform to manage TRAE skills and sync to git",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "simple-git": "^3.25.0"
+  }
+}

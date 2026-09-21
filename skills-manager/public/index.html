@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Skills Manager</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo">⚙</span>
+      <h1>Skills Manager</h1>
+      <span class="sub">TRAE 技能管理平台</span>
+    </div>
+    <div class="git-controls">
+      <span id="gitStatus" class="git-badge">检查中…</span>
+      <button id="btnRefresh" class="btn btn-ghost">刷新</button>
+      <button id="btnCommit" class="btn">提交</button>
+      <button id="btnPush" class="btn btn-primary">推送</button>
+    </div>
+  </header>
+  <main class="content">
+    <aside class="sidebar">
+      <div class="search">
+        <input id="search" type="text" placeholder="搜索 skills…" />
+      </div>
+      <div id="skillList" class="skill-list"></div>
+    </aside>
+    <section class="main-panel">
+      <div id="emptyState" class="empty-state">
+        <div class="empty-icon">📂</div>
+        <p>从左侧选择一个 skill 查看详情</p>
+      </div>
+      <div id="skillDetail" class="skill-detail" hidden>
+        <div class="detail-header">
+          <div>
+            <h2 id="skillName"></h2>
+            <p id="skillDesc" class="muted"></p>
+            <div class="meta">
+              <span id="skillSource" class="tag"></span>
+              <span id="skillWritable" class="tag"></span>
+              <code id="skillPath" class="path"></code>
+            </div>
+          </div>
+          <button id="btnNewSkill" class="btn btn-ghost">+ 新建</button>
+        </div>
+        <div class="editor-area">
+          <div class="file-bar">
+            <select id="fileSelect"></select>
+            <div class="editor-actions">
+              <button id="btnPreview" class="btn btn-ghost">预览</button>
+              <button id="btnSave" class="btn btn-primary" disabled>保存</button>
+            </div>
+          </div>
+          <div class="editor-body">
+            <textarea id="editor" class="editor" spellcheck="false"></textarea>
+            <div id="preview" class="preview" hidden></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+<div id="modal" class="modal" hidden>
+  <div class="modal-box">
+    <h3 id="modalTitle">提交更改</h3>
+    <div id="modalBody"></div>
+    <div class="modal-actions">
+      <button id="modalCancel" class="btn btn-ghost">取消</button>
+      <button id="modalOk" class="btn btn-primary">确定</button>
+    </div>
+  </div>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
